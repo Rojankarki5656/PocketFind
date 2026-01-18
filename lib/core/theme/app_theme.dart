@@ -1,23 +1,38 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const primaryColor = Color(0xFF10B981);
-  static const secondaryColor = Color(0xFF3B82F6);
-  static const accentColor = Color(0xFFF59E0B);
-  static const backgroundColor = Color(0xFFF9FAFB);
+  // 🌿 Brand colors
+  static const primaryColor = Color(0xFF22C55E); // fresh green
+  static const secondaryColor = Color(0xFF3B82F6); // blue
+  static const accentColor = Color(0xFFF59E0B); // amber
+
+  // 🎨 Backgrounds
+  static const creamBackground = Color.fromARGB(255, 252, 249, 246); // cream
+  static const darkBackground = Color(0xFF121212);
+
+  // 🧱 Surfaces
   static const cardColor = Colors.white;
+
+  // ✍️ Text
   static const textColor = Color(0xFF1F2937);
   static const textLightColor = Color(0xFF6B7280);
 
+  // 🌞 LIGHT THEME
   static final lightTheme = ThemeData(
     useMaterial3: true,
+
+    // IMPORTANT 🔥
+    scaffoldBackgroundColor: creamBackground,
+
     colorScheme: ColorScheme.light(
       primary: primaryColor,
       secondary: secondaryColor,
-      background: backgroundColor,
+      background: creamBackground,
+      surface: cardColor,
     ),
+
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.white,
+      backgroundColor: creamBackground,
       elevation: 0,
       centerTitle: false,
       titleTextStyle: TextStyle(
@@ -25,13 +40,17 @@ class AppTheme {
         fontSize: 20,
         fontWeight: FontWeight.bold,
       ),
+      iconTheme: IconThemeData(color: textColor),
     ),
+
     cardTheme: CardThemeData(
+      color: cardColor,
       elevation: 2,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
     ),
+
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: Colors.white,
@@ -39,8 +58,12 @@ class AppTheme {
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide.none,
       ),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      contentPadding: const EdgeInsets.symmetric(
+        horizontal: 16,
+        vertical: 14,
+      ),
     ),
+
     textTheme: const TextTheme(
       displayLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
       displayMedium: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -50,14 +73,17 @@ class AppTheme {
     ),
   );
 
+  // 🌙 DARK THEME
   static final darkTheme = ThemeData(
     useMaterial3: true,
+    scaffoldBackgroundColor: darkBackground,
     colorScheme: const ColorScheme.dark(
       primary: primaryColor,
       secondary: secondaryColor,
-      background: Color(0xFF121212),
+      background: darkBackground,
     ),
     cardTheme: CardThemeData(
+      color: Color(0xFF1E1E1E),
       elevation: 2,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
