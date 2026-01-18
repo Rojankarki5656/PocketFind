@@ -28,6 +28,7 @@ class _SearchScreenState extends State<SearchScreen> {
       appBar: AppBar(
         title: Container(
           height: 40,
+          margin: const EdgeInsets.only(top: 15),
           decoration: BoxDecoration(
             color: Colors.grey.shade100,
             borderRadius: BorderRadius.circular(12),
