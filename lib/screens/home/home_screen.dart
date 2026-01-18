@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pocketfind/widgets/hidden_gem_cart.dart';
 import 'package:pocketfind/widgets/product_card.dart';
 import 'package:pocketfind/widgets/category_chip.dart';
 import 'package:pocketfind/core/theme/app_theme.dart';
@@ -200,101 +201,12 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 12),
-                  SizedBox(
-                    height: 200,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: hiddenGems.length,
-                      itemBuilder: (context, index) {
-                        final gem = hiddenGems[index];
-                        return Container(
-                          width: 280,
-                          margin: EdgeInsets.only(
-                            right: index < hiddenGems.length - 1 ? 12 : 0,
-                          ),
-                          child: Card(
-                            child: Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 8,
-                                      vertical: 4,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: AppTheme.accentColor.withOpacity(
-                                        0.1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(6),
-                                    ),
-                                    child: Text(
-                                      gem['badge']!,
-                                      style: TextStyle(
-                                        color: AppTheme.accentColor,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 12),
-                                  Text(
-                                    gem['name']!,
-                                    style: const TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    '₹${gem['price']}',
-                                    style: const TextStyle(
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.bold,
-                                      color: AppTheme.primaryColor,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 12),
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.store,
-                                        size: 16,
-                                        color: Colors.grey,
-                                      ),
-                                      const SizedBox(width: 4),
-                                      Text(
-                                        gem['shop']!,
-                                        style: const TextStyle(
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                      const Spacer(),
-                                      const Icon(
-                                        Icons.directions_walk,
-                                        size: 16,
-                                        color: Colors.grey,
-                                      ),
-                                      const SizedBox(width: 4),
-                                      Text(
-                                        '${gem['distance']}m',
-                                        style: const TextStyle(
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
+                  Column(
+                    children: [
+                      HiddenGemsCard(hiddenGems: hiddenGems),
+                      ],
                   ),
                   const SizedBox(height: 24),
-
                   // Nearby Deals
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
