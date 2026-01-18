@@ -235,14 +235,14 @@ class _ContributeScreenState extends State<ContributeScreen> {
           children: [
             // Points Card
             Card(
-              color: AppTheme.primaryColor.withOpacity(0.1),
+              color: const Color.fromARGB(255, 240, 19, 7).withOpacity(0.1),
               child: Padding(
                 padding: const EdgeInsets.all(20),
                 child: Row(
                   children: [
                     const CircleAvatar(
                       radius: 30,
-                      backgroundColor: AppTheme.primaryColor,
+                      backgroundColor: Color.fromARGB(255, 214, 204, 20),
                       child: Icon(
                         Icons.emoji_events,
                         color: Colors.white,
@@ -259,7 +259,7 @@ class _ContributeScreenState extends State<ContributeScreen> {
                             style: const TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
-                              color: AppTheme.primaryColor,
+                              color: Color.fromARGB(255, 23, 57, 23),
                             ),
                           ),
                           const SizedBox(height: 4),
@@ -267,14 +267,14 @@ class _ContributeScreenState extends State<ContributeScreen> {
                             '${user?.badge ?? 'Explorer'}',
                             style: TextStyle(
                               fontSize: 16,
-                              color: Colors.grey.shade600,
+                              color: Color.fromARGB(255, 23, 57, 23),
                             ),
                           ),
                           const SizedBox(height: 8),
                           LinearProgressIndicator(
                             value: (user?.points ?? 0) / 2000,
                             backgroundColor: Colors.grey.shade200,
-                            color: AppTheme.primaryColor,
+                            color: Color.fromARGB(255, 23, 57, 23),
                             minHeight: 8,
                             borderRadius: BorderRadius.circular(4),
                           ),
@@ -421,7 +421,7 @@ class _ContributeScreenState extends State<ContributeScreen> {
                   },
                   child: Card(
                     child: Padding(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(4.2),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
