@@ -144,7 +144,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                                 child: Row(
                                   children: [
-                                    const Icon(Icons.verified, size: 16, color: AppTheme.primaryColor),
+                                    const Icon(
+                                      Icons.verified,
+                                      size: 16,
+                                      color: AppTheme.primaryColor,
+                                    ),
                                     const SizedBox(width: 4),
                                     Text(
                                       user.badge,
@@ -166,9 +170,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               ),
                               Text(
                                 'Keep contributing to earn more!',
-                                style: TextStyle(
-                                  color: Colors.grey.shade600,
-                                ),
+                                style: TextStyle(color: Colors.grey.shade600),
                               ),
                             ],
                           ),
@@ -203,7 +205,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 12),
                   GridView.count(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
@@ -277,11 +278,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Padding(
                       padding: const EdgeInsets.all(16),
                       child: Column(
-                        children: user.contributions.take(3).map((contribution) {
+                        children: user.contributions.take(3).map((
+                          contribution,
+                        ) {
                           return ListTile(
                             leading: CircleAvatar(
-                              backgroundColor: _getContributionColor(contribution.type)
-                                  .withOpacity(0.1),
+                              backgroundColor: _getContributionColor(
+                                contribution.type,
+                              ).withOpacity(0.1),
                               child: Icon(
                                 _getContributionIcon(contribution.type),
                                 color: _getContributionColor(contribution.type),
@@ -289,7 +293,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                             title: Text(contribution.name),
                             subtitle: Text(
-                              DateFormat('MMM dd, yyyy').format(contribution.date),
+                              DateFormat(
+                                'MMM dd, yyyy',
+                              ).format(contribution.date),
                             ),
                             trailing: Container(
                               padding: const EdgeInsets.symmetric(
@@ -373,14 +379,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
     required String label,
     required Color color,
   }) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(10),
+    final size = MediaQuery.of(context).size;
+    return SizedBox(
+      height: size.height * 0.23, // 👈 set height
+      width: size.width * 0.35, // 👈 set width
+      child: Card(
+        margin: EdgeInsets.all(0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(height: 4),
+
             Icon(icon, color: color, size: 24),
-            const SizedBox(height: 8),
+            const SizedBox(height: 6),
             Expanded(
               child: Text(
                 value,
@@ -393,12 +404,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             Text(
               label,
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.grey.shade600,
-              ),
+              style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
               overflow: TextOverflow.ellipsis,
             ),
+            const SizedBox(height: 4),
           ],
         ),
       ),
@@ -450,9 +459,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const SnackBar(content: Text('Logged out successfully')),
               );
             },
-            style: TextButton.styleFrom(
-              foregroundColor: Colors.red,
-            ),
+            style: TextButton.styleFrom(foregroundColor: Colors.red),
             child: const Text('Logout'),
           ),
         ],
