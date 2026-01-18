@@ -83,6 +83,7 @@ class _MainNavigationState extends State<MainNavigation> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: _screens[_selectedIndex],
 
@@ -94,6 +95,7 @@ class _MainNavigationState extends State<MainNavigation> {
         child: const Icon(Icons.location_on, color: Colors.white),
       ),
       bottomNavigationBar: Container(
+        height: size.height * 0.09,
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
