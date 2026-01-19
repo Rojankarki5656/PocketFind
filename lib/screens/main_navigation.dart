@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:pocketfind/services/location_provider.dart';
+import 'package:pocketfind/providers/location_provider.dart';
 import 'home/home_screen.dart';
 import 'search/search_screen.dart';
 import 'contribute/contribute_screen.dart';
