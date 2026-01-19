@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pocketfind/models/contribution_model.dart';
 import 'package:provider/provider.dart';
-import 'package:pocketfind/services/user_provider.dart';
+import 'package:pocketfind/providers/user_provider.dart';
 import 'package:pocketfind/core/theme/app_theme.dart';
 
 class ContributeScreen extends StatefulWidget {
